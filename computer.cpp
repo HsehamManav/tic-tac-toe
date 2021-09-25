@@ -36,8 +36,15 @@ class Computer: public Board{
                 }
                 printBoard();
             }
-            if(p%2) p=1;
-            else p=2;
-            cout<<"Player "<<p<<" Won"<<endl;
+            if(p<9){
+                if(p%2) cout<<"Player 1 Won"<<endl;
+                else cout<<"Computer Won"<<endl;
+            }
+            else{
+                if(check(p%2)){
+                    cout<<"Player 1 Won"<<endl;
+                }
+                else cout<<"Game Tied"<<endl;
+            }
         }
 };

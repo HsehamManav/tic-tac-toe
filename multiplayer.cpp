@@ -5,7 +5,7 @@ class Multiplayer :public Board {
     public:
         void Play(){
             int p=0;
-            while(not check(p%2)){
+            while(p<9 and (not check(p%2))){
                 int a,b;
                 p++;
                 switch(p%2){
@@ -32,9 +32,17 @@ class Multiplayer :public Board {
                 }
                 printBoard();
             }
-            if(p%2) p=1;
-            else p=2;
-            cout<<"Player "<<p<<" Won"<<endl;
+            if(p<9){
+                if(p%2) p=1;
+                else p=2;
+                cout<<"Player "<<p<<" Won"<<endl;
+            }
+            else{
+                if(check(p%2)){
+                    cout<<"Player 1 Won"<<endl;
+                }
+                else cout<<"Game Tied"<<endl;
+            }
         }
 
 };
